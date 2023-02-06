@@ -17,8 +17,7 @@ Pod::Spec.new do |spec|
   spec.resource_bundles = {
     "melonDS" => ["MelonDSDeltaCore/**/*.deltamapping", "MelonDSDeltaCore/**/*.deltaskin"]
   }
-  
-  spec.dependency 'DeltaCore'
+  spec.swift_version = '5.0'
     
   spec.xcconfig = {
     "HEADER_SEARCH_PATHS" => '"${PODS_CONFIGURATION_BUILD_DIR}" "$(PODS_ROOT)/Headers/Private/MelonDSDeltaCore/melonDS/src"',
