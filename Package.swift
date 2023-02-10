@@ -38,6 +38,7 @@ let package = Package(
             dependencies: ["DeltaCore", "melonDS", "melonDSSwift"],
             publicHeadersPath: "",
             cSettings: [
+                .headerSearchPath("../melonDS/include"),
                 .define("JIT_ENABLED", to:"1"),
                 .unsafeFlags([
                     "-fmodules",
@@ -47,6 +48,7 @@ let package = Package(
                 ]),
             ],
             cxxSettings: [
+                .headerSearchPath("../melonDS/include"),
                 .define("JIT_ENABLED", to: "1"),
                 .unsafeFlags([
                     "-fmodules",
@@ -103,7 +105,7 @@ let package = Package(
             swiftSettings: [
                 .define("STATIC_LIBRARY", .when(platforms: [.wasi])),
                 .unsafeFlags([
-                    "-enable-experimental-cxx-interop",
+//                    "-enable-experimental-cxx-interop",
                     "-I", "../melonDS/include/",
                     "-I", "../melonDS/melonDS/src/"
                 ])
