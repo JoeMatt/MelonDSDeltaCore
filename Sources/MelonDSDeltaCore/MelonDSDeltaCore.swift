@@ -9,7 +9,10 @@
 import Foundation
 import AVFoundation
 
-import DeltaCore
+@_exported import DeltaCore
+@_exported import melonDSSwift
+@_exported import melonDSBridge
+@_exported import melonDS
 
 #if !STATIC_LIBRARY
 public extension GameType
@@ -23,41 +26,13 @@ public extension CheatType
 }
 #endif
 
-@objc public enum MelonDSGameInput: Int, Input
-{
-    case a = 1
-    case b = 2
-    case select = 4
-    case start = 8
-    case right = 16
-    case left = 32
-    case up = 64
-    case down = 128
-    case r = 256
-    case l = 512
-    case x = 1024
-    case y = 2048
-    
-    case touchScreenX = 4096
-    case touchScreenY = 8192
-    
-    case lid = 16_384
-    
+extension MelonDSGameInput: Input {
     public var type: InputType {
         return .game(.ds)
     }
-    
-    public var isContinuous: Bool {
-        switch self
-        {
-        case .touchScreenX, .touchScreenY: return true
-        default: return false
-        }
-    }
 }
 
-public struct MelonDS: DeltaCoreProtocol
-{
+public struct MelonDS: DeltaCoreProtocol {
     public static let core = MelonDS()
     
     public var name: String { "melonDS" }
@@ -75,7 +50,7 @@ public struct MelonDS: DeltaCoreProtocol
         return [actionReplayFormat]
     }
     
-    public var emulatorBridge: EmulatorBridging { MelonDSEmulatorBridge.shared }
+    public var emulatorBridge: EmulatorBridging { MelonDSEmulatorBridge.shared as! EmulatorBridging}
     
     private init()
     {

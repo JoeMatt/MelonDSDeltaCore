@@ -10,22 +10,27 @@
 
 #import <UIKit/UIKit.h> // Prevent undeclared symbols in below headers
 
-#import <DeltaCore/DeltaCore.h>
-#import <DeltaCore/DeltaCore-Swift.h>
+@import AVFoundation;
 
-#if STATIC_LIBRARY
-#import "MelonDSDeltaCore-Swift.h"
+@import DeltaCore;
+@import melonDSSwift;
+
+#if 1
+@import melonDS;
 #else
-#import <MelonDSDeltaCore/MelonDSDeltaCore-Swift.h>
+#include "AREngine.h"
+#include "Config.h"
+#include "GPU.h"
+#include "NDS.h"
+#include "Platform.h"
+#include "SPU.h"
 #endif
 
-#include "melonDS/src/Platform.h"
-#include "melonDS/src/NDS.h"
-#include "melonDS/src/SPU.h"
-#include "melonDS/src/GPU.h"
-#include "melonDS/src/AREngine.h"
-
-#include "melonDS/src/Config.h"
+// Forward delcare, implimentation is in core code
+@interface MelonDSEmulatorBridge()
+@property (class, nonatomic, readonly, nullable) NSBundle* dsResources;
+@property (class, nonatomic, readonly, nullable) NSURL* coreDirectoryURL;
+@end
 
 #include <memory>
 

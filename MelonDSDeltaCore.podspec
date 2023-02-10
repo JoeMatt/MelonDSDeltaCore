@@ -15,7 +15,7 @@ Pod::Spec.new do |spec|
   spec.public_header_files = "MelonDSDeltaCore/Types/MelonDSTypes.h", "MelonDSDeltaCore/Bridge/MelonDSEmulatorBridge.h", "MelonDSDeltaCore/MelonDSDeltaCore.h"
   spec.header_mappings_dir = ""
   spec.resource_bundles = {
-    "melonDS" => ["MelonDSDeltaCore/**/*.deltamapping", "MelonDSDeltaCore/**/*.deltaskin"]
+    "melonDS" => ["MelonDSDeltaCore/**/*. ", "MelonDSDeltaCore/**/*.deltaskin"]
   }
   spec.swift_version = '5.0'
     
