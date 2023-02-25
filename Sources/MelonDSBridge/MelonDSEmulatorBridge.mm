@@ -8,12 +8,15 @@
 
 #import "MelonDSEmulatorBridge.h"
 
+#if __has_include(<UIKit/UIKit.h>)
 #import <UIKit/UIKit.h> // Prevent undeclared symbols in below headers
+#else
+#endif
 
 @import AVFoundation;
 
 @import DeltaCore;
-@import melonDSSwift;
+@import MelonDSSwift;
 
 #if 1
 @import melonDS;

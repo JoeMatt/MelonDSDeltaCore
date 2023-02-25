@@ -11,19 +11,16 @@ import Foundation
 import DeltaCore
 
 #if !STATIC_LIBRARY
-public extension GameType
-{
-    static let ds = GameType("com.rileytestut.delta.game.ds")
-}
+    public extension GameType {
+        static let ds = GameType("com.rileytestut.delta.game.ds")
+    }
 
-public extension CheatType
-{
-    static let actionReplay = CheatType("ActionReplay")
-}
+    public extension CheatType {
+        static let actionReplay = CheatType("ActionReplay")
+    }
 #endif
 
-@objc public enum MelonDSGameInput: Int, _Input
-{
+@objc public enum MelonDSGameInput: Int, _Input {
     case a = 1
     case b = 2
     case select = 4
@@ -36,15 +33,14 @@ public extension CheatType
     case l = 512
     case x = 1024
     case y = 2048
-    
+
     case touchScreenX = 4096
     case touchScreenY = 8192
-    
-    case lid = 16_384
+
+    case lid = 16384
 
     public var isContinuous: Bool {
-        switch self
-        {
+        switch self {
         case .touchScreenX, .touchScreenY: return true
         default: return false
         }

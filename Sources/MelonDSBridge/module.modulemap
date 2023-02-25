@@ -1,4 +1,4 @@
-module melonDSBridge {
+module MelonDSBridge {
     header "MelonDSEmulatorBridge.h"
     header "MelonDSTypes.h"
     export *
